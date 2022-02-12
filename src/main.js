@@ -1,4 +1,3 @@
-// Create variables targetting the relevant DOM elements here 👇
 var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedButton = document.querySelector('.view-saved-button');
@@ -21,9 +20,8 @@ var firstDescriptorInput = document.querySelector('#descriptor1');
 var secondDescriptorInput = document.querySelector('#descriptor2');
 
 var saveGrid = document.querySelector('.saved-covers-section');
-//var miniCover = document.querySelectorAll('')
-var savedRomComs = [];
 
+var savedRomComs = [];
 var currentRomCom;
 
 window.addEventListener('load', randomRomCom);
@@ -40,10 +38,6 @@ makeBookButton.addEventListener('click', submitNewRomCom);
 
 saveCoverButton.addEventListener('click', saveRomCom);
 
-// Create your event handlers and other functions here 👇
-
-
-// We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
