@@ -20,8 +20,8 @@ var titleInput = document.querySelector('#title');
 var firstDescriptorInput = document.querySelector('#descriptor1');
 var secondDescriptorInput = document.querySelector('#descriptor2');
 
-var saveGrid = document.querySelector('.saved-covers-section')
-
+var saveGrid = document.querySelector('.saved-covers-section');
+//var miniCover = document.querySelectorAll('')
 var savedRomComs = [];
 
 var currentRomCom;
@@ -92,6 +92,30 @@ function displayNewRomCom() {
 function saveRomCom() {
   if (!savedRomComs.includes(currentRomCom)) {
     savedRomComs.push(currentRomCom);
+    displaySavedRomComs();
+  }
+};
+
+function displaySavedRomComs() {
+  var renderer = '';
+  for (var i = 0; i < savedRomComs.length; i++) {
+    renderer += `<section ondblclick='deleteRomComs(this.id)' class= "mini-cover" id="${savedRomComs[i].id}">
+    <img class="cover-image" src=${savedRomComs[i].cover} >
+    <h2 class="cover-title">${savedRomComs[i].title} </h2>
+    <h3 class="tagline">A tale of <span class="tagline-1">${savedRomComs[i].tagline1} </span> and <span class="tagline-2">${savedRomComs[i].tagline2} </span></h3>
+    <img class="price-tag" src="./assets/price.png">
+    <img class="overlay" src="./assets/overlay.png">
+    </section>`;
+  }
+  saveGrid.innerHTML = renderer;
+};
+
+function deleteRomComs(id) {
+  for (var i = 0; i < savedRomComs.length; i++) {
+    if (id == savedRomComs[i].id) {
+      savedRomComs.splice(i, 1);
+    };
+    displaySavedRomComs();
   };
 };
 
