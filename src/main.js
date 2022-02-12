@@ -21,15 +21,12 @@ var firstDescriptorInput = document.querySelector('#descriptor1');
 var secondDescriptorInput = document.querySelector('#descriptor2');
 
 var saveGrid = document.querySelector('.saved-covers-section');
-var miniCover = document.querySelector('h4');
-
+//var miniCover = document.querySelectorAll('')
 var savedRomComs = [];
 
 var currentRomCom;
 
 window.addEventListener('load', randomRomCom);
-
-// window.addEventListener('load', defaultElements);
 
 randomCoverButton.addEventListener('click', randomRomCom);
 
@@ -42,8 +39,6 @@ viewSavedButton.addEventListener('click', switchSavedView);
 makeBookButton.addEventListener('click', submitNewRomCom);
 
 saveCoverButton.addEventListener('click', saveRomCom);
-
-miniCover.addEventListener('dblclick', deleteRomComs);
 
 // Create your event handlers and other functions here 👇
 
@@ -101,18 +96,13 @@ function saveRomCom() {
   }
 };
 
-// function defaultElements() {
-//     saveGrid.innerHTML = '<h4></h4>'
-// };
-
 function displaySavedRomComs() {
   var renderer = '';
   for (var i = 0; i < savedRomComs.length; i++) {
-    renderer += `<section class= "mini-cover">
+    renderer += `<section ondblclick='deleteRomComs(this.id)' class= "mini-cover" id="${savedRomComs[i].id}">
     <img class="cover-image" src=${savedRomComs[i].cover} >
     <h2 class="cover-title">${savedRomComs[i].title} </h2>
     <h3 class="tagline">A tale of <span class="tagline-1">${savedRomComs[i].tagline1} </span> and <span class="tagline-2">${savedRomComs[i].tagline2} </span></h3>
-    <h4 class="id hidden">${savedRomComs[i].id} </h4>
     <img class="price-tag" src="./assets/price.png">
     <img class="overlay" src="./assets/overlay.png">
     </section>`;
@@ -120,12 +110,13 @@ function displaySavedRomComs() {
   saveGrid.innerHTML = renderer;
 };
 
-function deleteRomComs() {
+function deleteRomComs(id) {
   for (var i = 0; i < savedRomComs.length; i++) {
-    if (miniCover.innerText === savedRomComs[i].id) {
-      savedRomComs.splice(savedRomComs[i], 1);
-    }
-  }
+    if (id == savedRomComs[i].id) {
+      savedRomComs.splice(i, 1);
+    };
+    displaySavedRomComs();
+  };
 };
 
 function randomRomCom() {
