@@ -30,9 +30,9 @@ The goal of this project was strengthen our understanding of writing Javascript 
 
 4. Click "Save Cover" whenever you would like to save a cover and then clock "View Saved Covers" to view your list of saved covers.
 
-![alt screenshot of saved covers list(https://frontend.turing.edu/projects/module-1/assets/romcom/romcom-saved.png)
+![alt screenshot of saved covers list](https://frontend.turing.edu/projects/module-1/assets/romcom/romcom-saved.png)
 
 5. If you no longer want to save a cover, simply double click on a cover in your "View Saved Covers" list and it will disappear.
 
-### For Instructors: 
+### For Instructors:
 The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/romcom-pair.html)
